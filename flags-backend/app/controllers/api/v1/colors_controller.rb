@@ -1,4 +1,4 @@
-class ColorsController < ApplicationController
+class API::V1::ColorsController < ApplicationController
   before_action :set_color, only: [:show, :update, :destroy]
 
   # GET /colors

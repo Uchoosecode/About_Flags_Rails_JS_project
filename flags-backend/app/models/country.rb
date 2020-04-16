@@ -1,5 +1,5 @@
 class Country < ApplicationRecord
   belongs_to :continent
-  has_one :flag
+  belongs_to :flag
   has_many :colors, through: :flags
 end
