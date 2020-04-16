@@ -1,4 +1,4 @@
-class API::V1::ContinentsController < ApplicationController
+class Api::V1::ContinentsController < ApplicationController
   before_action :set_continent, only: [:show, :update, :destroy]
 
   # GET /continents

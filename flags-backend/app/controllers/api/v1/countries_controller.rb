@@ -1,4 +1,4 @@
-class API::V1::CountriesController < ApplicationController
+class Api::V1::CountriesController < ApplicationController
   before_action :set_country, only: [:show, :update, :destroy]
 
   # GET /countries

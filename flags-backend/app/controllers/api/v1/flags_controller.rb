@@ -1,4 +1,4 @@
-class API::V1::FlagsController < ApplicationController
+class Api::V1::FlagsController < ApplicationController
   before_action :set_flag, only: [:show, :update, :destroy]
 
   # GET /flags
