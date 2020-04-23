@@ -10,6 +10,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 2020_04_17_204242) do
 
+  create_table "colors", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "flag_colors", force: :cascade do |t|
+    t.integer "flag_id", null: false
+    t.integer "color_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["color_id"], name: "index_flag_colors_on_color_id"
+    t.index ["flag_id"], name: "index_flag_colors_on_flag_id"
+  end
+
+  create_table "flags", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.string "year_created"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  add_foreign_key "flag_colors", "colors"
+  add_foreign_key "flag_colors", "flags"
 end
