@@ -5,7 +5,7 @@ class Api::V1::FlagsController < ApplicationController
   def index
     @flags = Flag.all
 
-    render json: @flags
+    render json: @flags, except: [:created_at, :updated_at]
   end
 
   # GET /flags/1

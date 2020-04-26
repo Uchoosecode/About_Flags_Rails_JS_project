@@ -5,7 +5,7 @@ class Api::V1::ColorsController < ApplicationController
   def index
     @colors = Color.all
 
-    render json: @colors
+    render json: @colors, except: [:created_at, :updated_at]
   end
 
   # GET /colors/1
@@ -46,6 +46,6 @@ class Api::V1::ColorsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def color_params
-      params.require(:color).permit(:name, :flag_id)
+      params.require(:color).permit(:name)
     end
 end

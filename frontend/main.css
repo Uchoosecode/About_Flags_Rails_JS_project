@@ -1,0 +1,22 @@
+h1 {
+    color: crimson;
+}
+
+body {
+    background-color: lemonchiffon;
+}
+
+#flag_canvas {
+   margin: 1px;
+}
+
+.polygons {
+    padding: 5px;
+}
+
+canvas #poly_mover {
+  text-align: right;
+  width: 500px;
+}
+
+

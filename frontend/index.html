@@ -4,9 +4,67 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About A Flag</title>
+
+    <link rel="stylesheet" href="main.css">
 </head>
 
 <body>
+    <h1>It's About A Flag</h1>
+    
+    <form id="flag-form">
+
+        <div>
+            <label for="name">Name:</label>
+            <input type="text" name="name" id="name">
+        </div>
+        <br>
+
+        <div>
+            <label for="description">Description:</label>
+            <input type="text" name="description" id="description">
+        </div>
+        <br>
+
+        <div>
+            <label for="year_created">Year_created:</label>
+            <input type="text" name="year_created" id="year_created">
+        </div>
+        <br>
+
+        <div id="select_color">
+        </div>
+        <br>
+
+        <div>
+            <input type="submit" value="Create Flag">
+        </div>
+        <br>
+    </form>
+
+        
+        <div>
+            
+            <button type="button" id="btnDisplay">DISPLAY</button>
+            <button type="button" id="btnDownload">DOWNLOAD</button><hr>
+            
+            <canvas id="flag_canvas" width="500" height="250"></canvas>
+            <img src="" id="flag_img" style="float: left; border: 2px solid #00f; margin-left: 10px;">
+            
+            <div id="poly_builder">
+                <button type="button" id="createSquare">SQUARE</button>
+                <button type="button" id="createCircle">CIRCLE</button>
+                <button type="button" id="createTriangle">TRIANGLE</button>
+                <button type="button" id="clearCanvas">RESET</button>
+            </div>
+        </div>
+        <br><hr>
+
+        <div id="flag-list">
+
+        </div>
     <script src="javascripts/index.js"></script>
+    <script src="javascripts/flag.js"></script>
+    <script src="javascripts/color.js"></script>
+   
 </body>
 </html>
