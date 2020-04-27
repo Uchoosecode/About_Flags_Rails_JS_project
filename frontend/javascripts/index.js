@@ -4,7 +4,6 @@ const WIDTH = 500;
 const HEIGHT = 250;
 const animate = window.requestAnimationFrame;
 
-const btnDisplay = document.querySelector("#btnDisplay");
 const btnDownload = document.querySelector("#btnDownload");
 const imgConverted = document.getElementById("flag_img")
 const canvas = document.getElementById("flag_canvas");  //access the canvas div
@@ -37,6 +36,14 @@ const colorShape = document.querySelector("option");
             console.log(ctx)
     }
      
+    createBackground.addEventListener("click",
+    function createBackground() {
+        ctx.restore
+        ctx.fillStyle = "plum";
+        ctx.fillRect(0, 0, WIDTH, HEIGHT);
+        shape_events.push(event.toElement);
+    });
+
     clearCanvas.addEventListener("click", 
     function clearCanvas() {
         ctx.clearRect(0, 0, WIDTH, HEIGHT);
@@ -74,11 +81,6 @@ const colorShape = document.querySelector("option");
         shape_events.push(event.toElement);
     });
     
-    btnDisplay.addEventListener("click", function () {
-        const flagURI = canvas.toDataURL();
-        imgConverted.src = flagURI;
-        console.log(flagURI)
-    })
     btnDownload.addEventListener("click", function () {
         // IE/Edge Support (PNG Only)
         if(window.navigator.msSaveBlob) {
@@ -94,15 +96,4 @@ const colorShape = document.querySelector("option");
             a.click();
             document.body.removeChild(a);
         }
-    })
-
-    // colorShape.addEventListener("mousedown", function () {
-    //     console.log(event)
-    // })
-            
-    
-    // document.addEventListener('DOMContendLoaded',
-    // function getEvents(events) {
-    //     events.push()
-        
-    // });
+    });
