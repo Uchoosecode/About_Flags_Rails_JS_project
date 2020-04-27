@@ -5,12 +5,12 @@ class Api::V1::FlagsController < ApplicationController
   def index
     @flags = Flag.all
 
-    render json: @flags, except: [:created_at, :updated_at]
+    render json: @flags, except: [:created_at, :updated_at], include: :colors
   end
 
   # GET /flags/1
   def show
-    render json: @flag
+    render json: @flag, include: :color
   end
 
   # POST /flags
@@ -18,7 +18,7 @@ class Api::V1::FlagsController < ApplicationController
     @flag = Flag.new(flag_params)
 
     if @flag.save
-      render json: @flag, status: :created, location: @flag
+      render json: @flag, status: :created, include: :color
     else
       render json: @flag.errors, status: :unprocessable_entity
     end
