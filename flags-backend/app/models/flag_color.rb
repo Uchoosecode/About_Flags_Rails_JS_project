@@ -1,5 +1,5 @@
 class FlagColor < ApplicationRecord
-  belongs_to :colors
-  belongs_to :flags
+  belongs_to :color
+  belongs_to :flag
 
 end
