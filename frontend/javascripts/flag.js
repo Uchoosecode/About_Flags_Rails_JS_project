@@ -76,6 +76,13 @@ async function createFlag(e) {
   };
 
   function clearCanvas() {
+    const slctColor = document.querySelectorAll("input")
+    
+    for (let i = 0; i < slctColor.length; i++) {
+      debugger;
+      slctColor[i].checked = false;
+    };
+    ctx.restore();
     ctx.clearRect(0, 0, WIDTH, HEIGHT);
     drawCanvas();
   };
