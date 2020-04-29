@@ -5,7 +5,7 @@ class Api::V1::FlagsController < ApplicationController
   def index
     @flags = Flag.all
 
-    render json: @flags, except: [:created_at, :updated_at], include: :colors
+    render json: @flags, except: [:created_at, :updated_at], methods: :colors
   end
 
   # GET /flags/1
@@ -18,7 +18,7 @@ class Api::V1::FlagsController < ApplicationController
     @flag = Flag.new(flag_params)
 
     if @flag.save
-      render json: @flag, status: :created, include: :color
+      render json: @flag, status: :created, include: :colors
     else
       render json: @flag.errors, status: :unprocessable_entity
     end
@@ -46,6 +46,6 @@ class Api::V1::FlagsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def flag_params
-      params.require(:flag).permit(:name, :country_id, :description, :year_created)
+      params.require(:flag).permit(:name, :description, :year_created, :color_ids => [])
     end
 end
