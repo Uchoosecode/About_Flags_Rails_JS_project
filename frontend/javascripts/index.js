@@ -15,12 +15,22 @@ const colorShape = document.querySelector("option");
     shape_events = []; //saves the element of which shape is chosen
 
     const sendHTTPRequest = async (method, url, data) => {
-        const response = await fetch(url, {
+        return response = await fetch(url, {
             method: method,
             body: JSON.stringify(data),
             headers: data ? { "Content-Type": 'application/json' } : {}
-        });
-        return response.json();}
+        }).then(response => {
+                if (response.status >= 400) {
+                    return response.json().then(errResData => {
+                        const error = new Error("Something aint right!");
+                        debugger;
+                        error.data = errResData;
+                        throw error
+                    });
+                }
+                return response.json();
+            });
+    };
     
 
     function init() {
