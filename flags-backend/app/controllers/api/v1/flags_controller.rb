@@ -46,6 +46,6 @@ class Api::V1::FlagsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def flag_params
-      params.require(:flag).permit(:name, :description, :year_created, :color_ids => [])
+      params.require(:flag).permit(:name, :description, :year_created, :image, :color_ids => [])
     end
 end
