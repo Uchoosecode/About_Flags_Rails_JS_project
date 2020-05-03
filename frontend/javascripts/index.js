@@ -37,6 +37,7 @@ const colorShape = document.querySelector("option");
         grabColor();
         console.log("About A Flag in On")
         drawCanvas();
+        showFlags();
     }
 
     function drawCanvas() {
@@ -107,3 +108,5 @@ const colorShape = document.querySelector("option");
             document.body.removeChild(a);
         }
     });
+
+   
