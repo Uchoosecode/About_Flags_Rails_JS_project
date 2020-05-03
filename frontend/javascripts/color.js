@@ -19,13 +19,15 @@ class Color {
                 let div = colorBtn;
                 let label = document.createElement("label");
                 let checkbox = document.createElement("input");
-                label.setAttribute('for', `color-${color.name}`);
                 
-                label.innerText = color.name;
+                label.setAttribute('for', `color-${color.name}`);
+                label.innerText = `|  ${color.name}`;
+                
                 checkbox.id = `${color.id}`;
                 checkbox.type = "checkbox";
                 checkbox.className = "fillStyle";
                 checkbox.onclick = function colorChange() {
+                
                 color_events.push(event.toElement);
                    
                 if(shape_events[shape_events.length-1].innerText == "SQUARE") {
@@ -55,7 +57,7 @@ class Color {
                     ctx.fillRect(0, 0, WIDTH, HEIGHT);
                 }
                 else {
-                message = alert("You need to my a shape first");
+                message = alert("You need to pick a shape first");
                 }
             };
                 checkbox.name = "color";
@@ -65,3 +67,5 @@ class Color {
             });
         });
     };
+
+    
